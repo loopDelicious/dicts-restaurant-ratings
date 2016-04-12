@@ -1,11 +1,12 @@
 # your code goes here
 #define a function that takes in a text file
+restaurant_and_ratings = {}
+
 def return_ratings(filename):
     """Take in a text file and returns restaurant ratings"""
 
     ratings_info = open(filename)
 
-    restaurant_and_ratings = {}
 
     # Go through each line of the file and assign the
     # name of the restaurant as a key, and rating as a value
@@ -17,7 +18,7 @@ def return_ratings(filename):
     # Create a list of restaurants, and sort alphabetically 
     alphabetical_restaurants = sorted(list(restaurant_and_ratings))
 
-    # Alternative way to sort dictionary using .items()
+    # Alternative way to sort dictionary using .items()???
     # alphabetical_restaurants = restaurant_and_ratings.items().sort()
 
     # Printing a sorted list of restaurant names from the list
@@ -27,3 +28,11 @@ def return_ratings(filename):
     
     ratings_info.close()
 
+def add_new_restaurant_rating(filename):
+    # get the name of the restaurant from the user and the rating
+    # then add this info to the restaurants_and_ratings dictionary
+    users_restaurant = raw_input("Provide name of restaurant: ")
+    users_restuarant_score = raw_input("Provide restaurant rating on scale of 1 to 5: ")
+    restaurant_and_ratings[users_restaurant] = users_restuarant_score
+    #call return_ratings functions to sort all restauratns including new 
+    return_ratings(filename)
